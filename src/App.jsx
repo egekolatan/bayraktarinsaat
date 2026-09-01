@@ -6,7 +6,6 @@ import { Phone, MapPin, ArrowUp, ShieldCheck, Cpu, Layers, Sparkles, Home, Award
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
-  const [dayNight, setDayNight] = useState('day');
   const [activeTab, setActiveTab] = useState('bostanli1');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [navVisible, setNavVisible] = useState(false);
@@ -15,7 +14,6 @@ export default function App() {
   const circleTextRef = useRef(null);
   const heroTitleRef = useRef(null);
   const heroSubtitleRef = useRef(null);
-  const heroDayNightRef = useRef(null);
   const heroBottomRef = useRef(null);
   const quoteSecRef = useRef(null);
   const quoteMarkRef = useRef(null);
@@ -57,12 +55,6 @@ export default function App() {
         { y: 60, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
         '-=0.9'
-      )
-      .fromTo(
-        heroDayNightRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
-        '-=0.7'
       )
       .fromTo(
         heroBottomRef.current,
@@ -299,12 +291,11 @@ export default function App() {
         position: 'relative',
         height: '100vh',
         width: '100%',
-        backgroundColor: dayNight === 'day' ? '#1C2A39' : '#131F2B',
+        backgroundColor: '#1C2A39',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: '30px 40px',
-        transition: 'background-color 0.8s cubic-bezier(0.76, 0, 0.24, 1)'
       }}>
 
         {/* Header */}
@@ -381,15 +372,6 @@ export default function App() {
             Bostanlı
           </div>
 
-          {/* GÜNDÜZ / GECE Butonu */}
-          <div ref={heroDayNightRef} style={{ display: 'inline-flex', alignItems: 'center', gap: '16px', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(250,248,245,0.9)' }}>
-            <button onClick={() => setDayNight('day')} style={{ background: 'none', border: 'none', color: dayNight === 'day' ? '#FAF8F5' : 'rgba(250,248,245,0.5)', fontWeight: dayNight === 'day' ? 700 : 400, cursor: 'pointer' }}>
-              GÜNDÜZ
-            </button>
-            <div style={{ width: '40px', height: '1px', backgroundColor: 'rgba(250,248,245,0.5)' }} />
-            <button onClick={() => setDayNight('night')} style={{ background: 'none', border: 'none', color: dayNight === 'night' ? '#FAF8F5' : 'rgba(250,248,245,0.5)', fontWeight: dayNight === 'night' ? 700 : 400, cursor: 'pointer' }}>
-              GECE
-            </button>
           </div>
         </div>
 
