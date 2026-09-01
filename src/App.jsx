@@ -299,17 +299,13 @@ export default function App() {
         position: 'relative',
         height: '100vh',
         width: '100%',
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundColor: dayNight === 'day' ? '#1C2A39' : '#131F2B',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: '30px 40px',
-        transition: 'background-image 1s cubic-bezier(0.76, 0, 0.24, 1)'
+        transition: 'background-color 0.8s cubic-bezier(0.76, 0, 0.24, 1)'
       }}>
-        {/* Soft Lacivert Overlay */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(28,42,57,0.4) 0%, rgba(28,42,57,0.2) 50%, rgba(28,42,57,0.6) 100%)', zIndex: 1 }} />
 
         {/* Header */}
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
