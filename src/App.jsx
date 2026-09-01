@@ -371,8 +371,6 @@ export default function App() {
           >
             Bostanlı
           </div>
-
-          </div>
         </div>
 
         {/* Bottom Bar */}
