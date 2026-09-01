@@ -164,23 +164,21 @@ export default function App() {
     };
   }, []);
 
-  const heroBg = dayNight === 'day'
-    ? '/exterior.jpg'
-    : '/interior.jpg';
-
   const [apiProjects, setApiProjects] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/projects')
-      .then(res => res.json())
-      .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          const map = {};
-          data.forEach(p => { map[p.id] = p; });
-          setApiProjects(map);
-        }
-      })
-      .catch(() => {});
+    if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+      fetch('http://127.0.0.1:8000/api/projects')
+        .then(res => res.json())
+        .then(data => {
+          if (Array.isArray(data) && data.length > 0) {
+            const map = {};
+            data.forEach(p => { map[p.id] = p; });
+            setApiProjects(map);
+          }
+        })
+        .catch(() => {});
+    }
   }, []);
 
   const defaultProjectsData = {
