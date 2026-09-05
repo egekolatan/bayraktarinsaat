@@ -202,28 +202,32 @@ export default function App() {
     <div style={{ backgroundColor: '#1C2A39', color: '#FAF8F5', minHeight: '100vh', fontFamily: "'Jost', sans-serif" }}>
 
       {/* SABİT ÜST NAVBAR */}
-      <nav style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 200,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '14px 40px',
-        backgroundColor: navVisible ? 'rgba(28,42,57,0.97)' : 'transparent',
-        backdropFilter: navVisible ? 'blur(12px)' : 'none',
-        borderBottom: navVisible ? '1px solid rgba(250,248,245,0.08)' : 'none',
-        transition: 'background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease',
-        pointerEvents: navVisible ? 'all' : 'none',
-        opacity: navVisible ? 1 : 0,
-      }}>
-        <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '18px', letterSpacing: '3px', textTransform: 'uppercase', color: '#FAF8F5', fontWeight: 400 }}>
+      <nav
+        className="site-navbar"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 200,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '14px 40px',
+          backgroundColor: navVisible ? 'rgba(28,42,57,0.97)' : 'transparent',
+          backdropFilter: navVisible ? 'blur(12px)' : 'none',
+          borderBottom: navVisible ? '1px solid rgba(250,248,245,0.08)' : 'none',
+          transition: 'background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease',
+          pointerEvents: navVisible ? 'all' : 'none',
+          opacity: navVisible ? 1 : 0,
+        }}
+      >
+        <div className="navbar-logo" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '18px', letterSpacing: '3px', textTransform: 'uppercase', color: '#FAF8F5', fontWeight: 400 }}>
           BAYRAKTAR İNŞAAT
         </div>
         <a
           href="tel:05551571881"
+          className="navbar-call-btn"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -251,18 +255,21 @@ export default function App() {
       </nav>
       
       {/* SOL SABİT İNDİKATÖR (Yazı ve Çizgi Rengi Açık Krem) */}
-      <div style={{
-        position: 'fixed',
-        left: '40px',
-        top: '220px',
-        bottom: '80px',
-        zIndex: 90,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        pointerEvents: 'none'
-      }}>
+      <div
+        className="left-scroll-indicator"
+        style={{
+          position: 'fixed',
+          left: '40px',
+          top: '220px',
+          bottom: '80px',
+          zIndex: 90,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          pointerEvents: 'none'
+        }}
+      >
         <div style={{ fontSize: '11px', letterSpacing: '2px', fontWeight: 600, color: 'rgba(250,248,245,0.8)' }}>
           {String(scrollProgress).padStart(2, '0')}
         </div>
@@ -285,21 +292,26 @@ export default function App() {
       </div>
 
       {/* 1. HERO SECTION (Zemin Lacivert & Açık Krem Metinler) */}
-      <section id="hero" style={{
-        position: 'relative',
-        height: '100vh',
-        width: '100%',
-        backgroundColor: '#1C2A39',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '30px 40px',
-      }}>
+      <section
+        id="hero"
+        className="hero-section"
+        style={{
+          position: 'relative',
+          height: '100vh',
+          minHeight: '600px',
+          width: '100%',
+          backgroundColor: '#1C2A39',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          padding: '30px 40px',
+        }}
+      >
 
         {/* Header */}
-        <div style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div className="hero-header" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           {/* Dönen Monogram */}
-          <div style={{ position: 'relative', width: '95px', height: '95px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="hero-monogram" style={{ position: 'relative', width: '95px', height: '95px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <svg ref={circleTextRef} viewBox="0 0 100 100" style={{ position: 'absolute', width: '100%', height: '100%' }}>
               <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
               <text fill="#FAF8F5" fontSize="8.5" letterSpacing="3" fontWeight="500">
@@ -312,7 +324,7 @@ export default function App() {
           </div>
 
           {/* Menü Bağlantıları */}
-          <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-end' }}>
+          <div className="hero-nav-links" style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-end' }}>
             <a href="#info" className="nav-hero-link active-link" style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: '16px',
@@ -339,9 +351,10 @@ export default function App() {
         </div>
 
         {/* Center Typography */}
-        <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', margin: 'auto 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="hero-center" style={{ position: 'relative', zIndex: 2, textAlign: 'center', margin: 'auto 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div
             ref={heroTitleRef}
+            className="hero-title"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: 'clamp(56px, 9vw, 130px)',
@@ -358,6 +371,7 @@ export default function App() {
 
           <div
             ref={heroSubtitleRef}
+            className="hero-subtitle"
             style={{
               fontFamily: "'Alex Brush', cursive",
               fontSize: 'clamp(48px, 8vw, 110px)',
@@ -372,20 +386,20 @@ export default function App() {
         </div>
 
         {/* Bottom Bar */}
-        <div ref={heroBottomRef} style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(16px, 2vw, 26px)', letterSpacing: '4px', textTransform: 'uppercase', color: '#FAF8F5', fontWeight: 500, textAlign: 'center' }}>
+        <div ref={heroBottomRef} className="hero-bottom" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <div className="hero-bottom-text" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(16px, 2vw, 26px)', letterSpacing: '4px', textTransform: 'uppercase', color: '#FAF8F5', fontWeight: 500, textAlign: 'center' }}>
             GELECEĞİ GÜVENLE İNŞA EDİYORUZ
           </div>
         </div>
       </section>
 
       {/* 2. MİMARİ SLOGAN BÖLÜMÜ (Zemin Koyu Lacivert / #152230) */}
-      <section ref={quoteSecRef} style={{ padding: '160px 40px 160px 140px', backgroundColor: '#152230', borderBottom: '1px solid rgba(250,248,245,0.1)' }}>
+      <section ref={quoteSecRef} className="quote-section" style={{ padding: '160px 40px 160px 140px', backgroundColor: '#152230', borderBottom: '1px solid rgba(250,248,245,0.1)' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
           
-          <div ref={quoteMarkRef} style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '64px', color: 'rgba(250,248,245,0.4)', marginBottom: '20px' }}>“</div>
+          <div ref={quoteMarkRef} className="quote-mark" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '64px', color: 'rgba(250,248,245,0.4)', marginBottom: '20px' }}>“</div>
           
-          <h2 ref={quoteTextRef} style={{
+          <h2 ref={quoteTextRef} className="quote-text" style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: 'clamp(24px, 3.2vw, 46px)',
             fontWeight: 400,
@@ -398,16 +412,16 @@ export default function App() {
             BAYRAKTAR İNŞAAT OLARAK BOSTANLI'DA MÜKEMMEL İŞÇİLİK, KALİTELİ MALZEME VE SAĞLAM MÜHENDİSLİK İLE GELECEĞE GÜVENLİ YAPILAR BIRAKIYORUZ.
           </h2>
 
-          <div ref={quoteAuthorRef} style={{ fontSize: '12px', letterSpacing: '2px', color: 'rgba(250,248,245,0.85)', textTransform: 'uppercase' }}>
+          <div ref={quoteAuthorRef} className="quote-author" style={{ fontSize: '12px', letterSpacing: '2px', color: 'rgba(250,248,245,0.85)', textTransform: 'uppercase' }}>
             MİMARİ EKİP — BAYRAKTAR İNŞAAT
           </div>
         </div>
       </section>
 
       {/* ŞANTİYE DURUMU BÖLÜMÜ */}
-      <section style={{ backgroundColor: '#1C2A39', borderBottom: '1px solid rgba(250,248,245,0.08)', padding: '48px 40px 48px 140px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#4ADE80', boxShadow: '0 0 0 3px rgba(74,222,128,0.25)', animation: 'pulse 2s infinite' }} />
+      <section className="santiye-section" style={{ backgroundColor: '#1C2A39', borderBottom: '1px solid rgba(250,248,245,0.08)', padding: '48px 40px 48px 140px' }}>
+        <div className="santiye-container" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#4ADE80', boxShadow: '0 0 0 3px rgba(74,222,128,0.25)', animation: 'pulse 2s infinite', flexShrink: 0 }} />
           <span style={{ fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(250,248,245,0.75)', fontFamily: "'Jost', sans-serif" }}>
             ŞANTİYE DEVAM EDİYOR
           </span>
@@ -416,7 +430,7 @@ export default function App() {
 
 
       {/* 3. PROJE VE MALZEME BİLGİLERİ BÖLÜMÜ (AÇIK MAVİ / GRİ ZEMİN: #ADC4CE, YAZILAR LACİVERT: #1C2A39) */}
-      <section ref={infoSecRef} id="info" style={{
+      <section ref={infoSecRef} id="info" className="info-section" style={{
         backgroundColor: '#ADC4CE',
         color: '#1C2A39',
         padding: '140px 40px 140px 140px',
@@ -425,9 +439,10 @@ export default function App() {
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           
           {/* Proje Seçim Sekmeleri */}
-          <div ref={infoTabsRef} style={{ display: 'flex', justifyContent: 'center', gap: '30px', marginBottom: '40px' }}>
+          <div ref={infoTabsRef} className="info-tabs" style={{ display: 'flex', justifyContent: 'center', gap: '30px', marginBottom: '40px' }}>
             <button
               onClick={() => setActiveTab('bostanli1')}
+              className="info-tab-btn"
               style={{
                 background: 'none', border: 'none',
                 fontFamily: "'Cormorant Garamond', serif",
@@ -441,6 +456,7 @@ export default function App() {
             </button>
             <button
               onClick={() => setActiveTab('bostanli2')}
+              className="info-tab-btn"
               style={{
                 background: 'none', border: 'none',
                 fontFamily: "'Cormorant Garamond', serif",
@@ -455,8 +471,8 @@ export default function App() {
           </div>
 
           {/* Başlık ve Özet */}
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <h2 ref={infoTitleRef} style={{
+          <div className="info-header" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <h2 ref={infoTitleRef} className="info-title" style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: 'clamp(36px, 5vw, 76px)',
               fontWeight: 400,
@@ -467,15 +483,15 @@ export default function App() {
             }}>
               {currentProject.title}
             </h2>
-            <div style={{ fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 600, opacity: 0.9 }}>
+            <div className="info-badge" style={{ fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px', fontWeight: 600, opacity: 0.9 }}>
               {currentProject.location} — {currentProject.badge}
             </div>
-            <p ref={infoSummaryRef} style={{ maxWidth: '750px', margin: '0 auto', fontSize: '16px', lineHeight: 1.8, opacity: 0.95 }}>
+            <p ref={infoSummaryRef} className="info-summary" style={{ maxWidth: '750px', margin: '0 auto', fontSize: '16px', lineHeight: 1.8, opacity: 0.95 }}>
               {currentProject.summary}
             </p>
           </div>
 
-          <div ref={infoTaglineRef} style={{
+          <div ref={infoTaglineRef} className="info-tagline" style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: 'clamp(20px, 2.8vw, 34px)',
             textAlign: 'center',
@@ -490,7 +506,7 @@ export default function App() {
       </section>
 
       {/* 4. İLETİŞİM BÖLÜMÜ (DERİN BORDO / PLUM ZEMİN: #2A0D18) */}
-      <section ref={contactSecRef} id="contact" style={{
+      <section ref={contactSecRef} id="contact" className="contact-section" style={{
         backgroundColor: '#2A0D18',
         color: '#FAF8F5',
         padding: '140px 40px 80px 140px',
@@ -498,25 +514,26 @@ export default function App() {
       }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <div ref={contactStarRef} style={{ width: '40px', height: '40px', margin: '0 auto 24px auto', color: '#FAF8F5' }}>
+          <div className="contact-content-center" style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <div ref={contactStarRef} className="contact-star" style={{ width: '40px', height: '40px', margin: '0 auto 24px auto', color: '#FAF8F5' }}>
               <svg viewBox="0 0 24 24" fill="none">
                 <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="#FAF8F5"/>
               </svg>
             </div>
 
-            <div ref={contactLabelRef} style={{ fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.85, marginBottom: '16px' }}>
+            <div ref={contactLabelRef} className="contact-label" style={{ fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.85, marginBottom: '16px' }}>
               DOĞRUDAN SATIŞ & BİLGİ HATTI
             </div>
 
             {/* Ahmetcan Bayraktar Telefon */}
-            <div style={{ marginBottom: '28px' }}>
-              <div style={{ fontSize: '14px', letterSpacing: '0.5px', textTransform: 'uppercase', opacity: 0.9, marginBottom: '6px', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}>
+            <div className="contact-phone-item" style={{ marginBottom: '28px' }}>
+              <div className="contact-person-name" style={{ fontSize: '14px', letterSpacing: '0.5px', textTransform: 'uppercase', opacity: 0.9, marginBottom: '6px', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}>
                 AHMETCAN BAYRAKTAR
               </div>
               <a 
                 ref={contactPhone1Ref}
                 href="tel:05551571881"
+                className="contact-phone-link phone-1"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: 'clamp(36px, 6vw, 76px)',
@@ -531,13 +548,14 @@ export default function App() {
             </div>
 
             {/* Bülent Bayraktar Telefon */}
-            <div>
-              <div style={{ fontSize: '14px', letterSpacing: '0.5px', textTransform: 'uppercase', opacity: 0.9, marginBottom: '6px', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}>
+            <div className="contact-phone-item">
+              <div className="contact-person-name" style={{ fontSize: '14px', letterSpacing: '0.5px', textTransform: 'uppercase', opacity: 0.9, marginBottom: '6px', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}>
                 BÜLENT BAYRAKTAR
               </div>
               <a 
                 ref={contactPhone2Ref}
                 href="tel:05321524295"
+                className="contact-phone-link phone-2"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: 'clamp(28px, 4.5vw, 56px)',
@@ -551,7 +569,7 @@ export default function App() {
               </a>
             </div>
 
-            <div ref={contactAddressRef} style={{ fontSize: '13px', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '24px', opacity: 0.9 }}>
+            <div ref={contactAddressRef} className="contact-address" style={{ fontSize: '13px', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '24px', opacity: 0.9 }}>
               SATIŞ OFİSİ — AHMETCAN BAYRAKTAR & BÜLENT BAYRAKTAR<br />
               <a 
                 href="https://maps.google.com/?q=38.455940,27.104025" 
@@ -567,11 +585,12 @@ export default function App() {
 
 
           {/* KONUM HARİTASI (Tıklayınca Doğrudan Google Maps Açılır) */}
-          <div style={{ marginBottom: '60px' }}>
+          <div className="contact-map-wrapper" style={{ marginBottom: '60px' }}>
             <a 
               href="https://maps.google.com/?q=38.455940,27.104025" 
               target="_blank" 
               rel="noopener noreferrer" 
+              className="contact-map-title"
               style={{
                 fontSize: '11px',
                 letterSpacing: '2px',
@@ -593,6 +612,7 @@ export default function App() {
               href="https://maps.google.com/?q=38.455940,27.104025"
               target="_blank"
               rel="noopener noreferrer"
+              className="contact-map-container"
               style={{ display: 'block', position: 'relative', width: '100%', paddingBottom: '38%', border: '1px solid rgba(250,248,245,0.2)', overflow: 'hidden', cursor: 'pointer' }}
               title="Google Haritalar'da Yol Tarifi Alın"
             >
@@ -601,7 +621,7 @@ export default function App() {
                 src="https://maps.google.com/maps?q=38.455940,27.104025&z=16&output=embed"
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', filter: 'grayscale(40%) sepia(15%)', pointerEvents: 'none' }}
               />
-              <div style={{
+              <div className="contact-map-btn" style={{
                 position: 'absolute',
                 bottom: '16px',
                 right: '16px',
@@ -625,7 +645,7 @@ export default function App() {
           </div>
 
           {/* Alt Bilgi & Telif */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(250, 248, 245, 0.15)', paddingTop: '32px', fontSize: '12px', opacity: 0.8, flexWrap: 'wrap', gap: '16px' }}>
+          <div className="contact-footer-bar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(250, 248, 245, 0.15)', paddingTop: '32px', fontSize: '12px', opacity: 0.8, flexWrap: 'wrap', gap: '16px' }}>
             <a href="#hero" style={{ color: '#FAF8F5', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px', letterSpacing: '2px', textTransform: 'uppercase' }}>
               <ArrowUp size={14} /> YUKARI ÇIK
             </a>
@@ -643,6 +663,7 @@ export default function App() {
         href="https://wa.me/905551571881?text=Merhaba%2C%20Bayraktar%20Bostanl%C4%B1%20projesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
         target="_blank"
         rel="noopener noreferrer"
+        className="whatsapp-fixed-btn"
         style={{
           position: 'fixed',
           bottom: '32px',

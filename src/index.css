@@ -131,3 +131,276 @@ a {
   width: 100%;
 }
 
+/* Responsive Mobile & Tablet Adaptations */
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Tablet Media Queries (max-width: 1024px) */
+@media (max-width: 1024px) {
+  /* Hide fixed left indicator when screen width isn't large enough for 140px left padding */
+  .left-scroll-indicator {
+    display: none !important;
+  }
+
+  /* Reset 140px left padding across all main sections */
+  .hero-section {
+    padding: 24px 24px !important;
+  }
+
+  .quote-section {
+    padding: 100px 30px !important;
+  }
+
+  .santiye-section {
+    padding: 36px 30px !important;
+  }
+
+  .info-section {
+    padding: 100px 30px !important;
+  }
+
+  .contact-section {
+    padding: 100px 30px 60px !important;
+  }
+}
+
+/* Mobile Media Queries (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Navbar Mobile adjustments */
+  .site-navbar {
+    padding: 12px 16px !important;
+  }
+
+  .navbar-logo {
+    font-size: 14px !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  .navbar-call-btn {
+    padding: 8px 14px !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* Hero Mobile adjustments */
+  .hero-section {
+    padding: 18px 16px !important;
+    min-height: 100dvh !important;
+  }
+
+  .hero-monogram {
+    width: 68px !important;
+    height: 68px !important;
+  }
+
+  .hero-nav-links {
+    gap: 6px !important;
+  }
+
+  .hero-nav-links .nav-hero-link {
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 8.5vw, 64px) !important;
+    line-height: 0.9 !important;
+    letter-spacing: 1px !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(34px, 8.5vw, 60px) !important;
+    margin-top: -12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-bottom-text {
+    font-size: clamp(12px, 3.2vw, 18px) !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* Quote Section Mobile adjustments */
+  .quote-section {
+    padding: 60px 20px !important;
+  }
+
+  .quote-mark {
+    font-size: 44px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .quote-text {
+    font-size: clamp(17px, 4.8vw, 24px) !important;
+    line-height: 1.45 !important;
+    margin-bottom: 24px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .quote-author {
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  /* Şantiye Section Mobile adjustments */
+  .santiye-section {
+    padding: 24px 20px !important;
+  }
+
+  /* Info Section Mobile adjustments */
+  .info-section {
+    padding: 60px 20px !important;
+  }
+
+  .info-tabs {
+    gap: 16px !important;
+    margin-bottom: 28px !important;
+  }
+
+  .info-tab-btn {
+    font-size: 14px !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  .info-header {
+    margin-bottom: 28px !important;
+  }
+
+  .info-title {
+    font-size: clamp(26px, 7vw, 44px) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .info-badge {
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .info-summary {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+
+  .info-tagline {
+    font-size: clamp(16px, 4.5vw, 22px) !important;
+    margin-top: 36px !important;
+  }
+
+  /* Contact Section Mobile adjustments */
+  .contact-section {
+    padding: 60px 20px 40px !important;
+  }
+
+  .contact-content-center {
+    margin-bottom: 48px !important;
+  }
+
+  .contact-star {
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .contact-label {
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .contact-phone-item {
+    margin-bottom: 20px !important;
+  }
+
+  .contact-person-name {
+    font-size: 12px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .contact-phone-link.phone-1 {
+    font-size: clamp(28px, 7.5vw, 48px) !important;
+  }
+
+  .contact-phone-link.phone-2 {
+    font-size: clamp(22px, 5.8vw, 36px) !important;
+  }
+
+  .contact-address {
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+    margin-top: 18px !important;
+    line-height: 1.6 !important;
+  }
+
+  .contact-map-wrapper {
+    margin-bottom: 40px !important;
+  }
+
+  .contact-map-title {
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .contact-map-container {
+    padding-bottom: 65% !important;
+    min-height: 240px !important;
+  }
+
+  .contact-map-btn {
+    padding: 8px 12px !important;
+    font-size: 9.5px !important;
+    letter-spacing: 1px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+
+  .contact-footer-bar {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+    padding-top: 24px !important;
+  }
+
+  /* Fixed WhatsApp Button Mobile adjustments */
+  .whatsapp-fixed-btn {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .whatsapp-fixed-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+
+/* Extra small screen adjustments (max-width: 380px e.g. iPhone SE, Galaxy Fold) */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 32px !important;
+  }
+
+  .hero-subtitle {
+    font-size: 32px !important;
+  }
+
+  .hero-bottom-text {
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .contact-phone-link.phone-1 {
+    font-size: 26px !important;
+  }
+
+  .contact-phone-link.phone-2 {
+    font-size: 20px !important;
+  }
+}
+
