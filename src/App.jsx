@@ -76,86 +76,72 @@ export default function App() {
 
     // 4. Quote Section — staggered children
     const anim = (el, from, to) => { if (el) gsap.fromTo(el, from, to); };
+    const isMobile = window.innerWidth <= 768;
 
     anim(quoteMarkRef.current,
-      { y: -30, opacity: 0, scale: 0.7 },
-      { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.4)',
-        scrollTrigger: { trigger: quoteSecRef.current, start: 'top 80%' } }
+      { y: -20, opacity: 0, scale: 0.8 },
+      { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.4)',
+        scrollTrigger: { trigger: quoteSecRef.current, start: 'top 85%' } }
     );
     anim(quoteTextRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out',
-        scrollTrigger: { trigger: quoteSecRef.current, start: 'top 75%' } }
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: quoteSecRef.current, start: 'top 80%' } }
     );
     anim(quoteAuthorRef.current,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out',
-        scrollTrigger: { trigger: quoteSecRef.current, start: 'top 70%' } }
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: quoteSecRef.current, start: 'top 75%' } }
     );
 
     // 5. Info Section — tabs, title, summary, cards stagger, tagline
     anim(infoTabsRef.current,
-      { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out',
-        scrollTrigger: { trigger: infoSecRef.current, start: 'top 80%' } }
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: infoSecRef.current, start: 'top 85%' } }
     );
     anim(infoTitleRef.current,
-      { y: 60, opacity: 0, skewY: 2 },
-      { y: 0, opacity: 1, skewY: 0, duration: 1.1, ease: 'power3.out',
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: infoTitleRef.current, start: 'top 85%' } }
     );
     anim(infoSummaryRef.current,
-      { y: 35, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out',
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out',
         scrollTrigger: { trigger: infoSummaryRef.current, start: 'top 85%' } }
     );
 
-    // Cards staggered — animate children of the grid wrapper
-    if (infoCardsRef.current && infoCardsRef.current.children.length > 0) {
-      gsap.fromTo(
-        infoCardsRef.current.children,
-        { y: 70, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.85, ease: 'power3.out', stagger: 0.15,
-          scrollTrigger: { trigger: infoCardsRef.current, start: 'top 80%' } }
-      );
-    }
-
     anim(infoTaglineRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out',
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: infoTaglineRef.current, start: 'top 85%' } }
     );
 
-    // 6. Contact Section — every element slides in
+    // 6. Contact Section — every element slides in cleanly
     anim(contactStarRef.current,
-      { scale: 0, rotation: -90, opacity: 0 },
-      { scale: 1, rotation: 0, opacity: 1, duration: 0.9, ease: 'back.out(1.7)',
-        scrollTrigger: { trigger: contactSecRef.current, start: 'top 80%' } }
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.7)',
+        scrollTrigger: { trigger: contactSecRef.current, start: 'top 85%' } }
     );
     anim(contactLabelRef.current,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out',
-        scrollTrigger: { trigger: contactSecRef.current, start: 'top 75%' } }
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: contactSecRef.current, start: 'top 80%' } }
     );
     anim(contactPhone1Ref.current,
-      { x: -60, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1.1, ease: 'power3.out',
-        scrollTrigger: { trigger: contactSecRef.current, start: 'top 70%' } }
+      { y: 30, x: isMobile ? 0 : -40, opacity: 0 },
+      { y: 0, x: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: contactSecRef.current, start: 'top 75%' } }
     );
     anim(contactPhone2Ref.current,
-      { x: 60, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1.1, ease: 'power3.out',
-        scrollTrigger: { trigger: contactSecRef.current, start: 'top 68%' } }
+      { y: 30, x: isMobile ? 0 : 40, opacity: 0 },
+      { y: 0, x: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: contactSecRef.current, start: 'top 73%' } }
     );
     anim(contactAddressRef.current,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out',
-        scrollTrigger: { trigger: contactSecRef.current, start: 'top 65%' } }
-    );
-    anim(contactFormRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out',
-        scrollTrigger: { trigger: contactFormRef.current, start: 'top 85%' } }
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: contactSecRef.current, start: 'top 70%' } }
     );
 
     return () => {
