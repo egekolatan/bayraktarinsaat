@@ -13,7 +13,8 @@ dist-ssr
 *.local
 
 # Python & Backend
-backend/
+venv/
+*.db
 *.pyc
 __pycache__/
 
